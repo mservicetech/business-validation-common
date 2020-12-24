@@ -2,6 +2,9 @@
 
 Define base interface and common logic for API business validation
 
+[![Build Status](https://travis-ci.com/mservicetech/business-validation-common.svg?branch=main)](https://travis-ci.com/github/mservicetech/business-validation-common) 
+
+
 ## Summary
 
 In microservice API, normally it has validation in two levels:
