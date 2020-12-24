@@ -60,7 +60,7 @@ For example, on Sprint-boot:
         List<ValidationCode> codes = new ArrayList<>();
         Stream<ValidationResult> validationResultStream = validators.stream().filter(validator->validator.support(FILTER_NAME)).flatMap(v->v.validate(null,drivingLicense));
         validationResultStream.filter(v->v.isError()).forEach(v->codes.addAll(v.getValidationCodes()));
-        if (codes!=null && codes.size()>0) {
+        if (codes.size()>0) {
             //TODO throw exception or return error codes
         }
 
