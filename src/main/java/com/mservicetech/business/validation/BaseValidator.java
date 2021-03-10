@@ -19,6 +19,10 @@ public interface BaseValidator <T, PayloadType> {
      */
     boolean support (T filter);
 
+    default  int priority() {
+        return 100;
+    }
+
     /**
      * Validate method to implement the detail business validation rules
      *

@@ -1,15 +1,13 @@
 package com.mservicetech.business.validation;
 
 import com.mservicetech.business.validation.exception.BusinessValidationException;
-import com.mservicetech.business.validation.sample.ABLicenseValidator;
-import com.mservicetech.business.validation.sample.DrivingLicense;
-import com.mservicetech.business.validation.sample.NBLicenseValidator;
-import com.mservicetech.business.validation.sample.ONLicenseValidator;
+import com.mservicetech.business.validation.sample.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -86,5 +84,23 @@ public class ValidatorTest {
         Stream<ValidationResult> validationResultStream = validators.stream().filter(validator->validator.support(drivingLicense.getPlaceOfIssue())).flatMap(v->v.validate(null,drivingLicense));
         validationResultStream.filter(v->v.isError()).forEach(v->codes.addAll(v.getValidationCodes()));
         Assert.assertEquals( codes.size(), 0);
+    }
+
+    @Test (expected = BusinessValidationException.class)
+    public void testONLicenseValidWithPriority() {
+        drivingLicense.setDriverLastName("Lee");
+        BaseValidator onValidator2 = new ONLicenseValidator2();
+        validators.add(onValidator2);
+        List<ValidationCode> codes = new ArrayList<>();
+        Stream<ValidationResult> validationResultStream = validators.stream().
+                filter(validator->validator.support(drivingLicense.getPlaceOfIssue())).sorted(Comparator.comparingInt(BaseValidator::priority)).
+                flatMap(v->v.validate(null,drivingLicense));
+
+        validationResultStream.filter(v->v.isError()).forEach(v->codes.addAll(v.getValidationCodes()));
+        Assert.assertTrue( codes.size()>0);
+        if (codes.size()>0) {
+            String errMsg = "Business validation error:" + ValidationResultUtil.getValidationMessage(codes);
+            throw new BusinessValidationException("Error", errMsg);
+        }
     }
 }

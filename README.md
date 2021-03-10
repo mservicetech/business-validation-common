@@ -66,5 +66,15 @@ For example, on Sprint-boot:
 
 ```
 
+- Invoke the validators with priority order (from small number to large number) defined in the interface method
 
+
+```
+        Stream<ValidationResult> validationResultStream = validators.stream().
+                filter(validator->validator.support(drivingLicense.getPlaceOfIssue())).sorted(Comparator.comparingInt(BaseValidator::priority)).
+                flatMap(v->v.validate(null,drivingLicense));
+
+        validationResultStream.filter(v->v.isError()).forEach(v->codes.addAll(v.getValidationCodes()));
+
+```
  
