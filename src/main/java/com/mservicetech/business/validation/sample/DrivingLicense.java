@@ -4,6 +4,7 @@ public class DrivingLicense {
     private String placeOfIssue;
     private String countryOfIssue;
     private String drivingLicenseNumber;
+    private String driverLastName;
 
     public String getPlaceOfIssue() {
         return placeOfIssue;
@@ -27,6 +28,14 @@ public class DrivingLicense {
 
     public void setDrivingLicenseNumber(String drivingLicenseNumber) {
         this.drivingLicenseNumber = drivingLicenseNumber;
+    }
+
+    public String getDriverLastName() {
+        return driverLastName;
+    }
+
+    public void setDriverLastName(String driverLastName) {
+        this.driverLastName = driverLastName;
     }
 
     @Override
