@@ -78,3 +78,17 @@ For example, on Sprint-boot:
 
 ```
  
+### rule annotation
+
+Define rule annotation (implement AnnotationBaseValidator), for example:
+
+```
+@Rule(id="0002", description = "account balance validation", errorMessage = "Balance for account cannot less than 0.",
+        effectiveDate= "2020-02-20", endDate="2021-12-32")
+public class AccountBalanceValidator implements AnnotationBaseValidator<String, Account> {
+
+```
+Library provide set of methods to use the annotation fields
+
+For implementation detail, please refer to the sample in the test package
+ 

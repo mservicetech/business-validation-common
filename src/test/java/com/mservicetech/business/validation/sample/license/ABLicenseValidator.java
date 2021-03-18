@@ -1,4 +1,4 @@
-package com.mservicetech.business.validation.sample;
+package com.mservicetech.business.validation.sample.license;
 
 import com.mservicetech.business.validation.BaseValidator;
 import com.mservicetech.business.validation.ValidationCode;

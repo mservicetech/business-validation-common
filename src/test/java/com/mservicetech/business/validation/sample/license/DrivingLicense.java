@@ -1,4 +1,4 @@
-package com.mservicetech.business.validation.sample;
+package com.mservicetech.business.validation.sample.license;
 
 public class DrivingLicense {
     private String placeOfIssue;
