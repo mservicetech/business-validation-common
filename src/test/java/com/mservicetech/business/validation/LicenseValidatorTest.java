@@ -1,7 +1,7 @@
 package com.mservicetech.business.validation;
 
 import com.mservicetech.business.validation.exception.BusinessValidationException;
-import com.mservicetech.business.validation.sample.*;
+import com.mservicetech.business.validation.sample.license.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +11,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class ValidatorTest {
+public class LicenseValidatorTest {
 
     List<BaseValidator> validators;
     private DrivingLicense drivingLicense;
