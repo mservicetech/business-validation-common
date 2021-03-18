@@ -12,6 +12,12 @@ import java.util.Date;
  */
 public interface AnnotationBaseValidator<T, PayloadType> extends BaseValidator<T, PayloadType> {
 
+    default boolean support(T filter) {
+        return  isValidTimeRange() &&  annotationSupport(filter);
+    }
+
+    boolean annotationSupport (T filter);
+
     /**
      * default method to get rule  annotation rule definition info.
      *
