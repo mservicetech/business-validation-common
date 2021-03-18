@@ -19,6 +19,7 @@ public interface BaseValidator <T, PayloadType> {
      */
     boolean support (T filter);
 
+
     default  int priority() {
         return 100;
     }

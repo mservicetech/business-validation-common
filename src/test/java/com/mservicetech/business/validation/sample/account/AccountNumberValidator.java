@@ -19,8 +19,8 @@ public class AccountNumberValidator implements AnnotationBaseValidator<String, A
     public  final String ACCOUNT_FILTER = "ACCOUNT";
 
     @Override
-    public boolean support(String filter) {
-        return ACCOUNT_FILTER.equalsIgnoreCase(filter) && isValidTimeRange();
+    public boolean annotationSupport(String filter) {
+        return ACCOUNT_FILTER.equalsIgnoreCase(filter) ;
     }
 
     @Override
