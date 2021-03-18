@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Rule(id="0002", description = "account balance validation", errorMessage = "Balance for account cannot less than 0.",
-        effectiveDate= "2020-02-20", endDate="2021-12-32")
+        effectiveDate= "2020-02-20", endDate="2031-12-32")
 public class AccountBalanceValidator implements AnnotationBaseValidator<String, Account> {
     private static final Logger logger = LoggerFactory.getLogger(AccountBalanceValidator.class);
     public  final String ACCOUNT_FILTER = "ACCOUNT";
 
     @Override
-    public boolean support(String filter) {
+    public boolean annotationSupport(String filter) {
         return ACCOUNT_FILTER.equalsIgnoreCase(filter);
     }
 

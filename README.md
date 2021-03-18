@@ -91,4 +91,10 @@ public class AccountBalanceValidator implements AnnotationBaseValidator<String, 
 The validation class need implement AnnotationBaseValidator interface instead of BaseValidator; Library provide set of methods to use the annotation fields
 
 For implementation detail, please refer to the sample in the test package
+
+The implementation validation class need implement two interface methods:
+
+ - annotationSupport (base support and isValidTimeRange or others)
+ - validate (base validation rule logic)
+
  
